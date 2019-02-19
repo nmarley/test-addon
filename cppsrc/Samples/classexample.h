@@ -4,7 +4,7 @@
 class ClassExample : public Napi::ObjectWrap<ClassExample> {
 public:
     static Napi::Object Init(Napi::Env env, Napi::Object exports);
-    ClassExample(const NapiCallbackInfo& info);
+    ClassExample(const Napi::CallbackInfo& info);
 
 private:
 
@@ -14,4 +14,4 @@ private:
 
     // internal instance of ActualClass used to perform actual operations
     ActualClass *actualClass;
-}
+};

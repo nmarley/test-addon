@@ -8,7 +8,7 @@ Napi::Object ClassExample::Init(Napi::Env env, Napi::Object exports) {
     Napi::Function func = DefineClass(env, "ClassExample", {
         InstanceMethod("add", &ClassExample::Add),
         InstanceMethod("getValue", &ClassExample::GetValue),
-    })
+    });
 
     constructor = Napi::Persistent(func);
     constructor.SuppressDestruct();
@@ -17,7 +17,7 @@ Napi::Object ClassExample::Init(Napi::Env env, Napi::Object exports) {
     return exports;
 }
 
-ClassExample::ClassExample(const NapiCallbackInfo& info) : Napi::ObjectWrap<ClassExample>(info) {
+ClassExample::ClassExample(const Napi::CallbackInfo& info) : Napi::ObjectWrap<ClassExample>(info) {
     Napi::Env env = info.Env();
     Napi::HandleScope scope(env);
 
